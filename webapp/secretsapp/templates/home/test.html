@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>My Notes</h1>
+    
+    <!-- View Notes -->
+    <h2>View Notes</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                {{ note.content }}
+                <form method="post" action="{{ url_for('notes.notes') }}">
+                    <input type="hidden" name="note_id" value="{{ note.id }}">
+                    <textarea name="note_content" rows="4" cols="50" required>{{ note.content }}</textarea>
+                    <input type="submit" value="Edit">
+                </form>
+                <form method="post" action="{{ url_for('notes.notes') }}">
+                    <input type="hidden" name="delete_note" value="{{ note.id }}">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Create Note -->
+    <h2>Create a New Note</h2>
+    <form method="post" action="{{ url_for('notes.notes') }}">
+        <textarea name="note_content" rows="4" cols="50" required></textarea>
+        <input type="submit" value="Create Note">
+    </form>
+
+{% endblock %}

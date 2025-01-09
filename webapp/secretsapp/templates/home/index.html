@@ -1,0 +1,32 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>Create Secret</title>
+</head>
+
+<section class="hero">
+    <header id="header">
+       
+    </header>
+    <header class="hero-header">
+        <h1 class="hero-title">Secret Manager <br>Keep all your <br>secrets safe</h1>
+    </header>
+    <footer class="hero-footer">
+        <a class="button button-primary" href="/loginn">Log in and sign up</a>
+        <a class="button" href="/about">About</a>
+    </footer>
+    <div class="login">
+        <form method="POST" action="/login">
+            <label for="chk" aria-hidden="true">Login</label>
+            <input type="text" id="username" name="username" placeholder="username" required="">
+            <input type="password" id="password" name="password" placeholder="password" required="">
+            <button type="submit">Login</button>
+            <a href="/loginn">Don't have an account? Sign Up</a>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+ 
